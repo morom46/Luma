@@ -41,24 +41,24 @@ body.timer-view #nav{position:relative;bottom:auto;flex:0 0 var(--nav-height)}
 body.timer-view .timer-page{
   height:100%;min-height:0;overflow:hidden;
   display:grid;grid-template-columns:minmax(0,1fr);
-  grid-template-rows:38px 24px 64px 32px minmax(0,1fr) 14px 50px 38px 38px auto;
+  grid-template-rows:38px 24px 64px 32px minmax(0,1fr) 14px 50px 38px 38px;
   justify-items:center;align-items:center;padding:4px 18px;
 }
-body.timer-view .timer-top{min-height:38px;padding:0}
+body.timer-view .timer-top{grid-row:1;min-height:38px;padding:0}
 body.timer-view .pill,body.timer-view .goal{min-height:36px;padding:7px 12px}
-body.timer-view .timer-status{font-size:15px;line-height:1.2;margin:0}
-body.timer-view .time{font-size:clamp(46px,12vw,60px);line-height:1.05}
-body.timer-view .timer-label{min-height:28px;margin:0;font-size:12px}
-body.timer-view .ring{height:100%;max-height:min(230px,60vw);width:auto;aspect-ratio:1;margin:0;align-self:center}
+body.timer-view .timer-status{grid-row:2;font-size:15px;line-height:1.2;margin:0}
+body.timer-view .time{grid-row:3;font-size:clamp(46px,12vw,60px);line-height:1.05}
+body.timer-view .timer-label{grid-row:4;min-height:28px;margin:0;font-size:12px}
+body.timer-view .timer-finish{grid-column:1;grid-row:5;align-self:start;margin:0;padding-top:4px;color:var(--muted);font-size:11px;line-height:16px;text-align:center;white-space:nowrap;pointer-events:none;z-index:1}
+body.timer-view .ring{grid-column:1;grid-row:5;height:100%;max-height:min(230px,60vw,calc(100% - 48px));width:auto;aspect-ratio:1;margin:0;align-self:center}
 body.timer-view .ring span{font-size:clamp(13px,3.5vw,16px);line-height:1.35;padding:16px}
 body.timer-view .ring small{font-size:11px;margin-top:6px}
-body.timer-view .session-dots{min-height:0;margin:0}
-body.timer-view .timer-actions{margin:0;gap:10px}
+body.timer-view .session-dots{grid-row:6;min-height:0;margin:0}
+body.timer-view .timer-actions{grid-row:7;margin:0;gap:10px}
 body.timer-view .timer-actions .primary{min-height:44px}
-body.timer-view .timer-footer{gap:18px;flex-wrap:nowrap}
+body.timer-view .timer-footer{grid-row:8;gap:18px;flex-wrap:nowrap}
 body.timer-view .timer-footer .text-button,body.timer-view .standby-launch{min-height:36px}
-body.timer-view .footnote{margin:0;text-align:center;line-height:1.3}
-body.timer-view .footnote:empty{display:none}
+body.timer-view .standby-launch{grid-row:9}
 
 @media(orientation:landscape) and (min-width:600px){
   :root{--nav-height:54px}
@@ -76,6 +76,7 @@ body.timer-view .footnote:empty{display:none}
   body.timer-view .timer-status{grid-column:1;grid-row:2;font-size:13px}
   body.timer-view .time{grid-column:1;grid-row:3;font-size:clamp(40px,5.8vw,56px)}
   body.timer-view .timer-label{grid-column:1;grid-row:4;min-height:26px}
+  body.timer-view .timer-finish{grid-column:1;grid-row:6;align-self:center;padding-top:0;font-size:10px;line-height:14px}
   body.timer-view .timer-actions{grid-column:1;grid-row:5;gap:6px}
   body.timer-view .timer-actions .icon-btn{width:40px;height:40px}
   body.timer-view .timer-actions .primary{min-width:112px;min-height:42px;padding:8px 15px}

@@ -2,7 +2,7 @@
 
 Luma is an original offline focus timer and productivity app built from scratch. It combines a local HTML interface with native Java timing, notifications, reminders, audio, and optional Accessibility-based app blocking. It has no external application libraries, server, analytics, or Internet permission.
 
-Version **1.4** adds Material 3 Expressive-inspired tonal color roles, grouped surfaces, adaptive rounded controls, and restrained variable-font feedback for Timer and StandBy states. The phone layout keeps bottom navigation aligned across sections and fits Timer without scrolling. The clock digits use a bundled Roboto Flex subset, while the rest of the interface uses Inter. Version 1.0 data and backups remain compatible.
+Version **1.5** keeps the Timer layout fixed when a session starts and shows its finish time above the circle. Running countdowns request an Android Live Update on supported Android 16 or later devices; the existing ongoing notification remains available when the system or manufacturer does not promote it. Material 3 Expressive-inspired tonal colors, grouped surfaces, adaptive rounded controls, and Roboto Flex timer digits remain in place. Version 1.0 data and backups remain compatible.
 
 ## Files
 
