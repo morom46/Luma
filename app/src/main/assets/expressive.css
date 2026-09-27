@@ -243,8 +243,11 @@ body.dark .stats-period .pill.active{color:var(--m3-on-primary-container)}
 .settings-group{
   background:var(--m3-surface-container);
   border-radius:var(--shape-large);
-  padding:18px;
+  margin:12px 0 14px;
+  padding:16px;
 }
+.settings{padding-bottom:0}
+.settings-group:last-child{margin-bottom:0}
 .settings-group h2{color:var(--m3-secondary);font-size:12px}
 .setting{border-color:var(--m3-outline-variant);border-radius:var(--shape-small);padding:12px}
 .setting:active{background:var(--m3-surface-container-high)}

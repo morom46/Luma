@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     private final Handler handler=new Handler(Looper.getMainLooper());
     private final Runnable awakeTick=new Runnable(){public void run(){updateAwake();handler.postDelayed(this,1000);}};
     @Override public void onCreate(Bundle state){super.onCreate(state);store=FocusStore.get(this);if(state!=null)exportText=state.getString("export","");
-        root=new FrameLayout(this);web=new WebView(this);root.addView(web,new FrameLayout.LayoutParams(-1,-1));setContentView(root);
+        root=new FrameLayout(this);web=new WebView(this);web.setHapticFeedbackEnabled(true);root.addView(web,new FrameLayout.LayoutParams(-1,-1));setContentView(root);
         if(Build.VERSION.SDK_INT>=30){getWindow().setDecorFitsSystemWindows(false);root.setOnApplyWindowInsetsListener((v,insets)->{android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.ime()|WindowInsets.Type.displayCutout());v.setPadding(bars.left,bars.top,bars.right,bars.bottom);return insets;});}
         WebSettings settings=web.getSettings();settings.setJavaScriptEnabled(true);settings.setDomStorageEnabled(false);settings.setAllowFileAccess(false);settings.setAllowContentAccess(false);settings.setBlockNetworkLoads(true);settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);settings.setSupportZoom(false);settings.setTextZoom(100);
         web.setWebViewClient(new WebViewClient(){
@@ -84,6 +84,7 @@ public class MainActivity extends Activity {
         @JavascriptInterface public String getHistory(){return store.history();}
         @JavascriptInterface public String snapshot(){return store.snapshot();}
         @JavascriptInterface public String command(String action,String payload){try{String result=store.command(action,new JSONObject(payload));runOnUiThread(()->{if(action.equals("start"))notifyPermission();refresh();});return result;}catch(Exception e){notice("Could not change the timer: check its settings.");return store.snapshot();}}
+        @JavascriptInterface public void haptic(String kind){runOnUiThread(()->{if(!foreground||web==null)return;int effect=HapticFeedbackConstants.VIRTUAL_KEY;if("selection".equals(kind))effect=HapticFeedbackConstants.CLOCK_TICK;else if(Build.VERSION.SDK_INT>=30){if("confirm".equals(kind))effect=HapticFeedbackConstants.CONFIRM;else if("reject".equals(kind))effect=HapticFeedbackConstants.REJECT;}web.performHapticFeedback(effect);});}
         @JavascriptInterface public void appearance(boolean isDark,boolean awake){runOnUiThread(()->{dark=isDark;keepAwake=awake;updateAwake();});}
         @JavascriptInterface public void standbyDisplay(boolean enabled,boolean night,boolean dim){runOnUiThread(()->{standby=enabled;standbyNight=night;standbyDim=dim;updateAwake();});}
         @JavascriptInterface public void requestNotifications(){runOnUiThread(()->notifyPermission());}
