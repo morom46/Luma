@@ -1,0 +1,301 @@
+/* Luma's phone-sized interpretation of Material 3 Expressive roles and shapes. */
+:root{
+  --m3-primary:#006b76;
+  --m3-on-primary:#fff;
+  --m3-primary-container:#a9ecf2;
+  --m3-on-primary-container:#00363d;
+  --m3-secondary:#4e6268;
+  --m3-on-secondary-container:#15373d;
+  --m3-secondary-container:#d3e8ec;
+  --m3-tertiary:#755473;
+  --m3-on-tertiary-container:#391f37;
+  --m3-tertiary-container:#fbd9f1;
+  --m3-surface-container:#eff5f5;
+  --m3-surface-container-high:#e6eff0;
+  --m3-outline-variant:#c8dadd;
+  --m3-on-surface:#17282b;
+  --m3-on-surface-variant:#50666b;
+  --shape-small:14px;
+  --shape-medium:20px;
+  --shape-large:28px;
+  --accent:var(--m3-primary);
+  --ink:var(--m3-on-surface);
+  --muted:var(--m3-on-surface-variant);
+  --line:var(--m3-outline-variant);
+  --soft:var(--m3-primary-container);
+}
+body.dark{
+  --m3-primary:#70d3df;
+  --m3-on-primary:#00373e;
+  --m3-primary-container:#104b54;
+  --m3-on-primary-container:#b0edf2;
+  --m3-secondary:#b4cbd0;
+  --m3-on-secondary-container:#d4e9ec;
+  --m3-secondary-container:#253e43;
+  --m3-tertiary:#e7b6dc;
+  --m3-on-tertiary-container:#fbd9f1;
+  --m3-tertiary-container:#593955;
+  --m3-surface-container:#111c1f;
+  --m3-surface-container-high:#1c2b2f;
+  --m3-outline-variant:#344a4f;
+  --m3-on-surface:#e2f0f1;
+  --m3-on-surface-variant:#adc3c7;
+  --accent:var(--m3-primary);
+  --ink:var(--m3-on-surface);
+  --muted:var(--m3-on-surface-variant);
+  --line:var(--m3-outline-variant);
+  --soft:var(--m3-primary-container);
+  --panel:var(--m3-surface-container-high);
+}
+
+/* A consistent bottom group remains anchored to the safe phone edges. */
+#nav,body.dark #nav{
+  background:var(--m3-surface-container);
+  border-top:1px solid var(--m3-outline-variant);
+  gap:4px;
+  padding:4px 6px;
+}
+#nav button{
+  border-radius:var(--shape-medium);
+  color:var(--m3-on-surface-variant);
+  transition:background-color .22s ease,color .22s ease,border-radius .28s ease,transform .2s ease;
+}
+#nav button.selected{
+  color:var(--m3-on-primary-container);
+  background:var(--m3-primary-container);
+  border-radius:24px;
+}
+#nav button:active{border-radius:var(--shape-small);transform:scale(.96)}
+
+/* Type roles: expressive numerals, clear page titles, compact support text. */
+header h1{font-weight:700;letter-spacing:-.05em}
+.timer-status{color:var(--m3-secondary);font-weight:650}
+.time{
+  color:var(--m3-on-surface);
+  font-variation-settings:'wdth' 96,'GRAD' 0;
+  transition:font-variation-settings .45s cubic-bezier(.2,0,0,1),color .3s ease;
+}
+.timer-page[data-state=running] .time{
+  color:var(--m3-primary);
+  font-variation-settings:'wdth' 110,'GRAD' 55;
+}
+.timer-page[data-state=paused] .time{
+  font-variation-settings:'wdth' 90,'GRAD' -20;
+}
+.metrics strong{font-weight:750;color:var(--m3-primary);letter-spacing:-.04em}
+
+/* Tonal surfaces and changing corner shapes make actions more legible. */
+.primary,.fab,.pill.active{
+  background:var(--m3-primary);
+  color:var(--m3-on-primary);
+  border-radius:var(--shape-medium);
+}
+body.dark .primary,body.dark .fab,body.dark .pill.active{color:var(--m3-on-primary)}
+.secondary{
+  background:var(--m3-secondary-container);
+  color:var(--m3-on-secondary-container);
+  border-color:transparent;
+  border-radius:var(--shape-medium);
+}
+.pill{
+  background:var(--m3-surface-container);
+  border-color:var(--m3-outline-variant);
+  border-radius:var(--shape-medium);
+  font-weight:600;
+}
+.icon-btn{border-radius:var(--shape-medium)}
+header .icon-btn{background:var(--m3-surface-container)}
+.primary,.secondary,.pill,.icon-btn,.fab,.text-button,.setting,.tabs button,.stats-period button{
+  transition:background-color .22s ease,color .22s ease,border-radius .28s cubic-bezier(.2,0,0,1),transform .2s ease;
+}
+.primary:active,.secondary:active,.pill:active,.icon-btn:active,.fab:active,.text-button:active,.setting:active,.tabs button:active,.stats-period button:active{
+  border-radius:var(--shape-small);
+  transform:scale(.97);
+}
+.primary:focus-visible,.secondary:focus-visible,.pill:focus-visible,#nav button:focus-visible{
+  outline-color:var(--m3-tertiary);
+}
+
+/* The Timer keeps its no-scroll grid while its controls form tonal groups. */
+.timer-page{
+  background:linear-gradient(180deg,#e9f7f8 0%,#fff 68%);
+}
+body.dark .timer-page{
+  background:radial-gradient(ellipse at 50% 42%,#0b191c 0%,#000 69%);
+}
+.timer-top .pill{
+  color:var(--m3-on-primary-container);
+  background:var(--m3-primary-container);
+  border-color:transparent;
+}
+.timer-top .goal,body.dark .timer-page .goal{
+  color:var(--m3-on-tertiary-container);
+  background:var(--m3-tertiary-container);
+  border-radius:var(--shape-medium);
+  font-weight:650;
+}
+.timer-label{color:var(--m3-on-surface-variant)}
+.ring{
+  background:radial-gradient(circle at 30% 22%,var(--m3-surface-container-high),var(--m3-surface-container));
+  box-shadow:inset 0 0 0 1px var(--m3-outline-variant);
+}
+.ring .track,body.dark .ring .track{stroke:var(--m3-outline-variant)}
+.ring .progress{stroke:var(--m3-primary)}
+.ring small{color:var(--m3-on-surface-variant)}
+.dot{background:var(--m3-outline-variant)}
+.dot.done{background:var(--m3-primary)}
+body.timer-view .timer-actions{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  padding:2px 4px;
+}
+body.timer-view .timer-actions .primary{border-radius:22px}
+body.timer-view .timer-actions .icon-btn{color:var(--m3-secondary)}
+.standby-launch{
+  color:var(--m3-on-secondary-container);
+  background:var(--m3-secondary-container);
+  border-radius:var(--shape-medium);
+  padding:0 12px;
+}
+body.timer-view .timer-footer .text-button{color:var(--m3-secondary)}
+
+/* Related controls share containers; rows still adapt to portrait width. */
+.tabs{
+  background:var(--m3-surface-container);
+  border:0;
+  border-radius:var(--shape-large);
+  margin:10px 16px 0;
+  padding:4px;
+  gap:4px;
+}
+.tabs button{
+  border-radius:var(--shape-medium);
+  color:var(--m3-on-surface-variant);
+  font-size:13px;
+  line-height:1.2;
+  min-width:0;
+  min-height:46px;
+  white-space:normal;
+  padding:8px 4px;
+}
+.tabs button.selected{
+  color:var(--m3-on-primary-container);
+  background:var(--m3-primary-container);
+}
+.tabs button.selected:after{display:none}
+.stats-period{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  padding:4px;
+  gap:4px;
+}
+.stats-period .pill{
+  min-width:0;
+  border:0;
+  background:transparent;
+  padding:10px 4px;
+}
+.stats-period .pill.active{
+  background:var(--m3-primary-container);
+  color:var(--m3-on-primary-container);
+}
+body.dark .stats-period .pill.active{color:var(--m3-on-primary-container)}
+.metrics{gap:8px}
+.metrics>div{
+  min-width:0;
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  padding:17px 6px;
+}
+.chart-card{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  padding:20px 20px 42px;
+}
+.chart{border-color:var(--m3-outline-variant)}
+.bar{background:var(--m3-primary);border-radius:9px 9px 2px 2px}
+.week{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  margin:12px 16px;
+  padding:10px;
+}
+.week button.selected{
+  background:var(--m3-primary-container);
+  color:var(--m3-on-primary-container);
+  border-radius:var(--shape-medium);
+}
+.task-row,.event{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  border:0;
+  margin:10px 0;
+}
+.task-row{padding:17px 12px 0}
+.task-body{border:0}
+.event{padding:18px 14px}
+.empty{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  margin:22px;
+  padding:50px 25px;
+}
+.settings-group{
+  background:var(--m3-surface-container);
+  border-radius:var(--shape-large);
+  padding:18px;
+}
+.settings-group h2{color:var(--m3-secondary);font-size:12px}
+.setting{border-color:var(--m3-outline-variant);border-radius:var(--shape-small);padding:12px}
+.setting:active{background:var(--m3-surface-container-high)}
+.setting .value{color:var(--m3-primary)}
+.filter-label{
+  background:var(--m3-secondary-container);
+  color:var(--m3-on-secondary-container);
+}
+dialog{background:var(--m3-surface-container-high)}
+.sheet-heading h2{font-weight:700;letter-spacing:-.035em}
+.field input,.field select,.field textarea{
+  border-color:var(--m3-outline-variant);
+  border-radius:var(--shape-small);
+}
+
+/* StandBy keeps its black backdrop and gains expressive numeral and control states. */
+.standby-clock-digits,.standby-digits{
+  font-variation-settings:'wdth' 98,'GRAD' 0;
+  transition:font-variation-settings .5s cubic-bezier(.2,0,0,1);
+}
+#standby[data-state=running] .standby-digits{
+  font-variation-settings:'wdth' 110,'GRAD' 55;
+}
+#standby[data-state=paused] .standby-digits{
+  font-variation-settings:'wdth' 90,'GRAD' -20;
+}
+.standby-toolbar{
+  background:#101719;
+  border:1px solid #2a4146;
+  border-radius:var(--shape-large);
+  padding:4px 8px;
+}
+.standby-toolbar button{
+  transition:background-color .2s ease,border-radius .28s ease,transform .2s ease;
+}
+.standby-toolbar button[aria-pressed=true],.standby-toolbar button[data-action=toggle]{
+  background:#20383d;
+  border-radius:var(--shape-medium);
+}
+.standby-toolbar button:active{border-radius:var(--shape-small);transform:scale(.96)}
+
+@media(orientation:landscape) and (max-height:430px){
+  .tabs{margin-top:6px}
+  .standby-toolbar{bottom:4px;padding:2px 6px}
+  .standby-toolbar button{min-height:42px}
+}
+@media(prefers-reduced-motion:reduce){
+  .time,.standby-clock-digits,.standby-digits,
+  .primary,.secondary,.pill,.icon-btn,.fab,.text-button,.setting,.tabs button,
+  .stats-period button,#nav button,.standby-toolbar button{
+    transition:none;
+    animation:none;
+  }
+}

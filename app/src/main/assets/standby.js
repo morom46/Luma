@@ -61,6 +61,7 @@ window.FocusStandby = (() => {
     },8000);
   }
   function sync(){
+    overlay.dataset.state=state.status;
     const next=M.shouldStandby({status:state.status,manual,auto:data.settings.standbyAuto,
       landscape:orientation,page,dismissed,active,dialog:$('sheet').open});
     if(state.status==='idle')manual=false;
