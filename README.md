@@ -2,11 +2,12 @@
 
 Luma is an original offline focus timer and productivity app built from scratch. It combines a local HTML interface with native Java timing, notifications, reminders, audio, and optional Accessibility-based app blocking. It has no external application libraries, server, analytics, or Internet permission.
 
-Version **1.1** adds true-black AMOLED surfaces and an optional StandBy-style clock and session display. It opens automatically in landscape while a session runs on the Timer screen, or manually in either orientation. Red night colour, fading controls, minute-by-minute position shifts, and native per-window dimming are included. The screen stays awake only while a session runs in the foreground. Luma does not replace Samsung's lock screen or Always On Display. Version 1.0 data and backups remain compatible.
+Version **1.2** fills the phone width in either orientation, uses a bundled offline Inter font, and fits the Timer within the visible screen without scrolling. Timer opens at launch and when the app returns to the foreground. The existing StandBy display remains available from Timer and through its rotation setting. Version 1.0 data and backups remain compatible.
 
 ## Files
 
 - `app/src/main/assets/`: touch interface and browser preview adapter.
+- `INTER-OFL.txt`: license for the bundled Inter font.
 - `app/src/main/java/com/focus/personal/`: native app, timer engine, and Android integrations.
 - `app/src/main/AndroidManifest.xml` and `res/`: Android manifest and resources.
 - `tests/`: deterministic timer and data model checks.
