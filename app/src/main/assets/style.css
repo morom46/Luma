@@ -14,17 +14,22 @@ header h1{font-weight:500;letter-spacing:-.035em}
 
 /* Inter is bundled so the app keeps the same typography while offline. */
 @font-face{font-family:Inter;src:url('inter.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
-:root{font-family:Inter,system-ui,sans-serif;font-synthesis:none}
+@font-face{font-family:'Roboto Flex Digits';src:url('roboto-flex-digits.ttf') format('truetype');font-style:normal;font-weight:100 1000;font-display:swap;unicode-range:U+0030-003A}
+:root{font-family:Inter,system-ui,sans-serif;font-synthesis:none;--nav-height:64px}
 #app{width:100%;max-width:none;margin:0}
-#nav{left:0;transform:none;max-width:none}
-.fab{right:max(18px,env(safe-area-inset-right))}
+#nav{left:0;transform:none;max-width:none;height:var(--nav-height);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:0}
+#nav button{width:100%;height:100%;min-width:0;justify-content:center;gap:4px;padding:4px 2px;font-size:11px;line-height:1.2}
+#nav button svg{width:24px;height:24px}
+#main{padding-bottom:calc(var(--nav-height) + 16px)}
+.fab{right:max(18px,env(safe-area-inset-right));bottom:calc(var(--nav-height) + 20px)}
+#toast{bottom:calc(var(--nav-height) + 16px)}
 @media(min-width:600px){
   body,body.dark{background:var(--bg)}
   #app{box-shadow:none}
   #nav{border-radius:0}
 }
 header h1{font-weight:600;letter-spacing:-.045em}
-.time{font-weight:700;letter-spacing:-.055em}
+.time{font-family:'Roboto Flex Digits',Inter,system-ui,sans-serif;font-optical-sizing:auto;font-weight:700;letter-spacing:-.045em}
 #nav button{font-weight:500;letter-spacing:0}
 
 /* The Timer owns the available screen height; the other sections still scroll. */
@@ -32,11 +37,11 @@ body.timer-view{overflow:hidden}
 body.timer-view #app{height:100dvh;min-height:0;display:flex;flex-direction:column}
 body.timer-view header{height:60px;flex:0 0 60px}
 body.timer-view #main{flex:1 1 auto;min-height:0;padding:0;overflow:hidden}
-body.timer-view #nav{position:relative;bottom:auto;height:62px;flex:0 0 62px}
+body.timer-view #nav{position:relative;bottom:auto;flex:0 0 var(--nav-height)}
 body.timer-view .timer-page{
   height:100%;min-height:0;overflow:hidden;
   display:grid;grid-template-columns:minmax(0,1fr);
-  grid-template-rows:38px 24px 64px 32px minmax(0,1fr) 14px 50px 38px 38px 20px;
+  grid-template-rows:38px 24px 64px 32px minmax(0,1fr) 14px 50px 38px 38px auto;
   justify-items:center;align-items:center;padding:4px 18px;
 }
 body.timer-view .timer-top{min-height:38px;padding:0}
@@ -53,12 +58,13 @@ body.timer-view .timer-actions .primary{min-height:44px}
 body.timer-view .timer-footer{gap:18px;flex-wrap:nowrap}
 body.timer-view .timer-footer .text-button,body.timer-view .standby-launch{min-height:36px}
 body.timer-view .footnote{margin:0;text-align:center;line-height:1.3}
+body.timer-view .footnote:empty{display:none}
 
 @media(orientation:landscape) and (min-width:600px){
+  :root{--nav-height:54px}
+  #nav button{gap:2px;padding:2px 4px;font-size:10px}
+  #nav button svg{width:21px;height:21px}
   body.timer-view header{height:48px;flex-basis:48px}
-  body.timer-view #nav{height:54px;flex-basis:54px}
-  body.timer-view #nav button{gap:2px;padding:4px 6px;font-size:10px}
-  body.timer-view #nav button svg{width:21px;height:21px}
   body.timer-view .timer-page{
     grid-template-columns:minmax(210px,1fr) minmax(120px,150px) minmax(130px,.8fr);
     grid-template-rows:34px 20px 52px 30px 48px 14px;
@@ -83,8 +89,8 @@ body.timer-view .footnote{margin:0;text-align:center;line-height:1.3}
   body.timer-view .footnote{display:none}
 }
 @media(orientation:landscape) and (max-height:310px){
+  :root{--nav-height:48px}
   body.timer-view header{height:40px;flex-basis:40px}
-  body.timer-view #nav{height:48px;flex-basis:48px}
   body.timer-view .timer-page{grid-template-rows:30px 18px 46px 24px 42px 10px}
   body.timer-view .ring{max-height:125px}
 }

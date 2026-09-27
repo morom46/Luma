@@ -19,7 +19,7 @@ body.standby-active #app{display:none}
 .standby-clock,.standby-session{min-width:0;text-align:center}
 .standby-session{color:var(--timer-color)}
 .standby-eyebrow{font-size:clamp(11px,1.8vw,20px);letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.6;min-height:26px}
-.standby-clock-digits,.standby-digits{font-family:inherit;font-size:clamp(56px,14.7vw,210px);font-variant-numeric:tabular-nums;font-feature-settings:'tnum';font-weight:700;letter-spacing:-.065em;line-height:1.35;white-space:nowrap}
+.standby-clock-digits,.standby-digits{font-family:'Roboto Flex Digits',Inter,system-ui,sans-serif;font-optical-sizing:auto;font-size:clamp(56px,14.7vw,210px);font-variant-numeric:tabular-nums;font-feature-settings:'tnum';font-weight:700;letter-spacing:-.045em;line-height:1.35;white-space:nowrap}
 .standby-clock-digits{font-weight:500}
 .standby-digits.with-hours{font-size:clamp(42px,11vw,157px)}
 .standby-label{font-size:clamp(13px,2vw,22px);line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;padding:0 8px;min-height:27px}

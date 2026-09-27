@@ -2,12 +2,13 @@
 
 Luma is an original offline focus timer and productivity app built from scratch. It combines a local HTML interface with native Java timing, notifications, reminders, audio, and optional Accessibility-based app blocking. It has no external application libraries, server, analytics, or Internet permission.
 
-Version **1.2** fills the phone width in either orientation, uses a bundled offline Inter font, and fits the Timer within the visible screen without scrolling. Timer opens at launch and when the app returns to the foreground. The existing StandBy display remains available from Timer and through its rotation setting. Version 1.0 data and backups remain compatible.
+Version **1.3** keeps the bottom navigation at the same position and size across every section in portrait and landscape. Timer and StandBy clock digits use a bundled Roboto Flex subset, while the rest of the interface uses Inter. Timer still fills the phone width without scrolling and opens at launch or when the app returns to the foreground. Version 1.0 data and backups remain compatible.
 
 ## Files
 
 - `app/src/main/assets/`: touch interface and browser preview adapter.
 - `INTER-OFL.txt`: license for the bundled Inter font.
+- `ROBOTO-FLEX-OFL.txt`: license for the bundled Roboto Flex clock digits.
 - `app/src/main/java/com/focus/personal/`: native app, timer engine, and Android integrations.
 - `app/src/main/AndroidManifest.xml` and `res/`: Android manifest and resources.
 - `tests/`: deterministic timer and data model checks.
