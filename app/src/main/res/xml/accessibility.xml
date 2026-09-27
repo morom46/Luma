@@ -1,0 +1,1 @@
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android" android:accessibilityEventTypes="typeWindowStateChanged" android:accessibilityFeedbackType="feedbackGeneric" android:notificationTimeout="150" android:canRetrieveWindowContent="false" android:description="@string/blocker_description" android:settingsActivity="com.focus.personal.MainActivity"/>

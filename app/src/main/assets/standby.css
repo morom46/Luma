@@ -1,0 +1,64 @@
+/* AMOLED surfaces remain #000, including dialogs and the Android system bars. */
+body.dark{--bg:#000;--panel:#000;--ink:#e5e7eb;--muted:#9ca3ab;--line:#202225;--soft:#071c20;--accent:#42c4ce;background:#000}
+body.dark #app,body.dark header,body.dark #nav,body.dark .timer-page{background:#000}
+body.dark .primary,body.dark .fab,body.dark .pill.active{color:#001114}
+body.dark dialog{border:1px solid var(--line)}
+body.dark .ring .track{stroke:#10282a}
+body.dark .timer-page .goal{background:#0a2023}
+body.dark .primary{box-shadow:none}
+.standby-launch{color:var(--accent)}
+.standby-setting{line-height:1.5}
+.setting>span:first-child{min-width:0}
+.setting .switch{display:block}
+body.standby-active{background:#000;overflow:hidden}
+body.standby-active #app{display:none}
+#standby[hidden]{display:none}
+#standby{--clock-color:#e5e0d6;--timer-color:#ffae54;--standby-muted:#9b9389;position:fixed;inset:0;background:#000;color:var(--clock-color);z-index:10;overflow:hidden;outline:none;padding:clamp(24px,5vw,64px);display:flex;align-items:center;justify-content:center;touch-action:manipulation;user-select:none;color-scheme:dark}
+#standby.night{--clock-color:#db4b38;--timer-color:#db4b38;--standby-muted:#b34a3c}
+.standby-content{width:100%;max-width:1400px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(24px,5vw,80px);padding-bottom:26px}
+.standby-clock,.standby-session{min-width:0;text-align:center}
+.standby-session{color:var(--timer-color)}
+.standby-eyebrow{font-size:clamp(11px,1.8vw,20px);letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.6;min-height:26px}
+.standby-clock-digits,.standby-digits{font-family:Roboto,'Segoe UI',Arial,sans-serif;font-size:clamp(56px,14.7vw,210px);font-variant-numeric:tabular-nums;font-feature-settings:'tnum';font-weight:700;letter-spacing:-.065em;line-height:1.35;white-space:nowrap}
+.standby-clock-digits{font-weight:500}
+.standby-digits.with-hours{font-size:clamp(42px,11vw,157px)}
+.standby-label{font-size:clamp(13px,2vw,22px);line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;padding:0 8px;min-height:27px}
+.standby-caption{font-size:clamp(11px,1.5vw,16px);color:var(--standby-muted);line-height:1.6;min-height:24px}
+.standby-track{height:3px;background:#302013;max-width:240px;width:70%;margin:16px auto 12px;border-radius:3px;overflow:hidden}
+.standby-track i{height:100%;background:var(--timer-color);display:block;border-radius:3px}
+.night .standby-track{background:#2a100c}
+.standby-toolbar{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;justify-content:center;gap:clamp(12px,3vw,36px);transition:opacity .3s;max-width:100%;padding:0 12px}
+.standby-toolbar button{min-width:48px;min-height:52px;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--standby-muted);font-size:10px;border-radius:12px;padding:7px 9px;white-space:nowrap}
+.standby-toolbar button:active{background:#161616}
+.standby-toolbar button[aria-pressed=true]{color:var(--timer-color)}
+.standby-toolbar button[data-action=toggle]{color:var(--timer-color)}
+.standby-toolbar svg{width:21px;height:21px}
+.standby-toolbar button:focus-visible{outline-color:var(--timer-color)}
+.quiet .standby-toolbar{opacity:0;pointer-events:none}
+.standby-reveal{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);padding:12px 20px;min-height:44px;color:var(--standby-muted);font-size:11px;opacity:.65}
+.standby-reveal[hidden]{display:none}
+.standby-active #toast{bottom:90px;background:#202020;color:#eee}
+@media(orientation:portrait){
+  #standby{padding:24px}
+  .standby-content{grid-template-columns:1fr;gap:clamp(32px,7vh,80px);padding-bottom:65px}
+  .standby-clock-digits,.standby-digits{font-size:clamp(70px,23vw,180px)}
+  .standby-digits.with-hours{font-size:clamp(48px,17vw,130px)}
+  .standby-eyebrow{font-size:12px}
+  .standby-label{font-size:16px}
+  .standby-caption{font-size:12px}
+  .standby-toolbar{gap:10px}
+  .standby-toolbar button{padding:7px 5px}
+}
+@media(orientation:landscape) and (max-height:430px){
+  #standby{padding:18px 30px 52px}
+  .standby-content{padding-bottom:0;gap:30px}
+  .standby-clock-digits,.standby-digits{font-size:min(14vw,30vh)}
+  .standby-digits.with-hours{font-size:min(10vw,23vh)}
+  .standby-eyebrow{font-size:11px;min-height:20px}
+  .standby-caption{font-size:11px;min-height:18px}
+  .standby-label{font-size:14px;min-height:21px}
+  .standby-track{margin:10px auto 7px}
+  .standby-toolbar{bottom:6px}
+  .standby-toolbar button{min-height:44px;padding:4px 8px}
+}
+@media(prefers-reduced-motion:reduce){.standby-toolbar{transition:none}}
