@@ -49,12 +49,12 @@ $aligned = Join-Path $buildRoot 'aligned.apk'
 CheckExit 'ZIP alignment'
 $signing = Join-Path $workspaceRoot 'work\signing'
 New-Item -ItemType Directory -Path $signing -Force | Out-Null
-$keyStore = Join-Path $signing 'focus-personal.jks'
+$keyStore = Join-Path $signing 'luma.jks'
 if (!(Test-Path -LiteralPath $keyStore)) {
-    & $keytool -genkeypair -keystore $keyStore -storepass focus-personal-local -keypass focus-personal-local -alias personal -dname 'CN=Focus Personal, OU=Personal Use' -keyalg RSA -keysize 3072 -validity 10000 -noprompt
+    & $keytool -genkeypair -keystore $keyStore -storepass focus-personal-local -keypass focus-personal-local -alias personal -dname 'CN=Luma, OU=Personal Use' -keyalg RSA -keysize 3072 -validity 10000 -noprompt
     CheckExit 'Signing key generation'
 }
-$apk = Join-Path $workspaceRoot 'outputs\Focus-Personal.apk'
+$apk = Join-Path $workspaceRoot 'outputs\Luma.apk'
 & $java -jar (Join-Path $buildTools 'lib\apksigner.jar') sign --ks $keyStore --ks-key-alias personal --ks-pass pass:focus-personal-local --key-pass pass:focus-personal-local --out $apk $aligned
 CheckExit 'APK signing'
 & $java -jar (Join-Path $buildTools 'lib\apksigner.jar') verify --verbose $apk
