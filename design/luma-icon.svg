@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" role="img" aria-label="Luma icon">
+  <rect width="108" height="108" fill="#06383F"/>
+  <path d="M68 32 A26 26 0 1 0 79 59" fill="none" stroke="#A9ECF2" stroke-width="6" stroke-linecap="round"/>
+  <path d="M47 40 V64 H64" fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="79" cy="34" r="5" fill="#FBD9F1"/>
+</svg>

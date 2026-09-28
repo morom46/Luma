@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.focus.personal" android:versionCode="7" android:versionName="1.6">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.focus.personal" android:versionCode="8" android:versionName="1.7">
     <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS"/>
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <queries><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.HOME"/></intent></queries>
-    <application android:label="Luma" android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false" android:usesCleartextTraffic="false" android:supportsRtl="true">
+    <application android:label="Luma" android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false" android:usesCleartextTraffic="false" android:supportsRtl="true">
         <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize">
             <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
         </activity>

@@ -2,12 +2,14 @@
 
 Luma is an original offline focus timer and productivity app built from scratch. It combines a local HTML interface with native Java timing, notifications, reminders, audio, and optional Accessibility-based app blocking. It has no external application libraries, server, analytics, or Internet permission.
 
-Version **1.6** adds Android system haptic feedback for taps, selections, and timer actions. The duplicate global overflow menu and repeated Timer and StandBy controls in Settings have been removed. Timer setup and notes have separate controls, and the label is shown as session status. Settings ends close to the persistent bottom navigation. The Timer layout stays fixed when a session starts and shows its finish time above the circle. Running countdowns request an Android Live Update on supported Android 16 or later devices; the existing ongoing notification remains available when the system or manufacturer does not promote it. Material 3 Expressive-inspired tonal colors, grouped surfaces, adaptive rounded controls, and Roboto Flex timer digits remain in place. Version 1.0 data and backups remain compatible.
+Version **1.7** introduces a Luma launcher mark: a progress arc around the letter L with a small light accent. Adaptive foreground and background layers let Android apply the launcher's shape, while a monochrome layer supports themed icons. The notification icon uses the same mark. Version 1.6's interaction haptics, streamlined controls, and compact Settings layout remain in place, along with the fixed Timer layout and finish-time placement. Running countdowns request an Android Live Update on supported Android 16 or later devices; the existing ongoing notification remains available when the system or manufacturer does not promote it. Version 1.0 data and backups remain compatible.
 
 ## Files
 
 - `app/src/main/assets/`: touch interface and browser preview adapter.
 - `app/src/main/assets/expressive.css`: shared color, shape, type, and motion rules.
+- `design/luma-icon.svg`: editable master for the launcher icon mark.
+- `app/src/main/res/mipmap-anydpi-v26/` and `res/drawable/`: adaptive, themed, legacy, and notification icons.
 - `INTER-OFL.txt`: license for the bundled Inter font.
 - `ROBOTO-FLEX-OFL.txt`: license for the bundled Roboto Flex clock digits.
 - `app/src/main/java/com/focus/personal/`: native app, timer engine, and Android integrations.
